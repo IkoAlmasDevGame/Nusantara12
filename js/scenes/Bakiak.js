@@ -4,8 +4,8 @@ class BakiakScene extends Phaser.Scene{
   create(){
     const w=this.scale.width, h=this.scale.height;
     paperBG(this,w,h);
-    this.add.text(w/2,h*0.06,'BAKIAK — Kompak Bertiga!',{fontFamily:'Baloo 2',fontSize:Math.max(18,w*0.04)+'px',color:'#3D2B1F',fontStyle:'800'}).setOrigin(0.5);
-    const back = woodButton(this, w*0.14, h*0.055, w*0.2, h*0.055, '< Desa', Math.max(11,w*0.018));
+    this.add.text(w/2,h*0.06,'BAKIAK\nKompak Bertiga!',{fontFamily:'Baloo 2',fontSize:Math.max(14,w*0.032)+'px',color:'#3D2B1F',fontStyle:'800',align:'center'}).setOrigin(0.5);
+    const back = woodButton(this, Math.max(34,w*0.09), Math.max(40,h*0.06), Math.min(56,w*0.16), Math.max(40,h*0.06), '◀', Math.max(18,w*0.024));
     back.base.on('pointerdown', ()=> this.scene.start('Hub'));
 
     this.dist=0; this.finish=100; this.tilt=0; this.lastPress={1:-1,2:-1,3:-1};

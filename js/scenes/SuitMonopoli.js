@@ -4,8 +4,8 @@ class SuitMonopoliScene extends Phaser.Scene{
   create(){
     const w=this.scale.width, h=this.scale.height;
     paperBG(this,w,h);
-    this.add.text(w/2,h*0.06,'SUWIT & MONOPOLI KAMPUNG',{fontFamily:'Baloo 2',fontSize:Math.max(16,w*0.036)+'px',color:'#3D2B1F',fontStyle:'800'}).setOrigin(0.5);
-    const back = woodButton(this, w*0.14, h*0.055, w*0.2, h*0.055, '< Desa', Math.max(11,w*0.018));
+    this.add.text(w/2,h*0.06,'SUWIT &\nMONOPOLI KAMPUNG',{fontFamily:'Baloo 2',fontSize:Math.max(13,w*0.028)+'px',color:'#3D2B1F',fontStyle:'800',align:'center'}).setOrigin(0.5);
+    const back = woodButton(this, Math.max(34,w*0.09), Math.max(40,h*0.06), Math.min(56,w*0.16), Math.max(40,h*0.06), '◀', Math.max(18,w*0.024));
     back.base.on('pointerdown', ()=> this.scene.start('Hub'));
     this.phase='suit';
     this.suitWins=0; this.aiWins=0; this.round=0;
@@ -68,7 +68,7 @@ class SuitMonopoliScene extends Phaser.Scene{
   }
   _tilePos(i){
     const w=this.scale.width, h=this.scale.height;
-    const bx=w*0.12, by=h*0.28, bw=w*0.76, bh=h*0.5;
+    const bx=w*0.06, by=h*0.26, bw=w*0.88, bh=h*0.54;
     const perSide=3;
     const side=Math.floor(i/perSide), idx=i%perSide;
     const t = idx/perSide;
@@ -82,10 +82,12 @@ class SuitMonopoliScene extends Phaser.Scene{
     const w=this.scale.width, h=this.scale.height;
     this.boardGfx = this.add.graphics(); this.dyn.push(this.boardGfx);
     this.tileTxts=[];
+    const SHORT={'Balai Desa':'Balai\nDesa','Sawah':'Sawah','Warung':'Warung','Pos Ronda':'Pos\nRonda'};
+    const tileW=w*0.145, tileH=h*0.075;
     this.tiles.forEach((t,i)=>{
       const p=this._tilePos(i);
-      const r=this.add.rectangle(p.x,p.y,w*0.11,h*0.07, t==='Balai Desa'?PAL.jati:t==='Warung'?PAL.genteng:t==='Sawah'?PAL.daun:PAL.bambu).setStrokeStyle(2,0x2b1c12);
-      const lbl=this.add.text(p.x,p.y,t,{fontFamily:'VT323',fontSize:Math.max(9,w*0.015)+'px',color:'#F5F1E8',align:'center',wordWrap:{width:w*0.1}}).setOrigin(0.5);
+      const r=this.add.rectangle(p.x,p.y,tileW,tileH, t==='Balai Desa'?PAL.jati:t==='Warung'?PAL.genteng:t==='Sawah'?PAL.daun:PAL.bambu).setStrokeStyle(2,0x2b1c12);
+      const lbl=this.add.text(p.x,p.y,SHORT[t]||t,{fontFamily:'VT323',fontSize:Math.max(11,w*0.022)+'px',color:'#F5F1E8',align:'center',wordWrap:{width:tileW-4}}).setOrigin(0.5);
       this.dyn.push(r,lbl); this.tileTxts.push(lbl);
     });
     this.tokenGfx = this.add.graphics(); this.dyn.push(this.tokenGfx);

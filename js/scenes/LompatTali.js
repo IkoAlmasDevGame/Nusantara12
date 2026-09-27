@@ -4,8 +4,8 @@ class LompatTaliScene extends Phaser.Scene{
   create(){
     const w=this.scale.width, h=this.scale.height;
     paperBG(this,w,h);
-    this.add.text(w/2,h*0.07,'LOMPAT TALI KARET',{fontFamily:'Baloo 2',fontSize:Math.max(20,w*0.045)+'px',color:'#3D2B1F',fontStyle:'800'}).setOrigin(0.5);
-    const back = woodButton(this, w*0.12, h*0.06, w*0.16, h*0.06, '< Desa', Math.max(12,w*0.02));
+    this.add.text(w/2,h*0.07,'LOMPAT TALI\nKARET',{fontFamily:'Baloo 2',fontSize:Math.max(15,w*0.034)+'px',color:'#3D2B1F',fontStyle:'800',align:'center'}).setOrigin(0.5);
+    const back = woodButton(this, Math.max(34,w*0.09), Math.max(40,h*0.06), Math.min(56,w*0.16), Math.max(40,h*0.06), '◀', Math.max(18,w*0.024));
     back.base.on('pointerdown', ()=> this.scene.start('Hub'));
 
     this.levels=['Lutut','Pinggang','Kepala','Merdeka'];
