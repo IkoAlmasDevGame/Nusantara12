@@ -1,0 +1,11 @@
+{
+  "name": "Nusantara 12 - Museum Game Tradisional",
+  "short_name": "Nusantara12",
+  "description": "12 game tradisional Indonesia yang bisa dimainkan penuh, 1 HP.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#3D2B1F",
+  "theme_color": "#3D2B1F",
+  "orientation": "any",
+  "icons": []
+}
